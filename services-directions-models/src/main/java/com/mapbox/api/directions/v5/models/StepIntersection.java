@@ -127,6 +127,14 @@ public abstract class StepIntersection extends DirectionsJsonObject {
   public abstract List<IntersectionLanes> lanes();
 
   /**
+   * List of incidents. If no incidents happened, the list will not be present.
+   *
+   * @return list of incidents
+   */
+  @Nullable
+  public abstract List<Incident> incidents();
+
+  /**
    * Convert the current {@link StepIntersection} to its builder holding the currently assigned
    * values. This allows you to modify a single property and then rebuild the object resulting in
    * an updated and modified {@link StepIntersection}.
@@ -257,6 +265,14 @@ public abstract class StepIntersection extends DirectionsJsonObject {
      * @since 3.0.0
      */
     public abstract Builder rawLocation(@NonNull double[] rawLocation);
+
+    /**
+     * List of incidents.
+     *
+     * @param incidents a list of incidents along the intersection
+     * @return this builder for chaining options together
+     */
+    public abstract Builder incidents(@Nullable List<Incident> incidents);
 
     /**
      * Build a new {@link StepIntersection} object.
